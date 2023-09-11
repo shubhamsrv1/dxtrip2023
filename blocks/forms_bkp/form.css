@@ -133,14 +133,6 @@ main .form .form-submit-wrapper .button {
   color: white;
 }
 
-.displayNo{
-  display: none !important;
-}
-
-.displayYes{
-  display: block;
-}
-
 @media (min-width: 900px) {
   main .form {
       display: block;
@@ -152,3 +144,7 @@ main .form .form-submit-wrapper .button {
       width: 650px;
   }
 }
+.form-safariAdhaar-wrapper field-wrapper {
+display: none
+}
+

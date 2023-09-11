@@ -18,11 +18,7 @@ function createSelect(fd) {
     select.setAttribute('required', 'required');
   }
   return select;
-
-  
 }
-
-
 
 function constructPayload(form) {
   const payload = {};
@@ -137,12 +133,8 @@ async function createForm(formURL) {
     const fieldId = `form-${fd.Field}-wrapper${style}`;
     fieldWrapper.className = fieldId;
     fieldWrapper.classList.add('field-wrapper');
-    //alert(fieldId);
     switch (fd.Type) {
       case 'select':
-        if (fd.Field == 'safariCount' || fd.Field == 'safariAdhaar'){
-          fieldWrapper.classList.add('displayNo');
-        }
         fieldWrapper.append(createLabel(fd));
         fieldWrapper.append(createSelect(fd));
         break;
@@ -161,9 +153,6 @@ async function createForm(formURL) {
         fieldWrapper.append(createButton(fd));
         break;
       default:
-        if (fd.Field == 'safariCount' || fd.Field == 'safariAdhaar'){
-          fieldWrapper.classList.add('displayNo');
-        }
         fieldWrapper.append(createLabel(fd));
         fieldWrapper.append(createInput(fd));
     }
@@ -190,32 +179,4 @@ export default async function decorate(block) {
   if (form) {
     form.replaceWith(await createForm(form.href));
   }
-
-  const handleChange = (e) => {
-    //alert('on change triggered');
-    var safariInterestVal = document.querySelector('#safariInterested').value;
-    //alert(safariInterestVal);
-    var elemAdhar = document.querySelector('.form-safariAdhaar-wrapper');
-    var elemCount = document.querySelector('.form-safariCount-wrapper ');
-    if (safariInterestVal==='Yes') {
-      elemAdhar.classList.remove('displayNo');
-      elemCount.classList.remove('displayNo');
-      elemAdhar.classList.add('displayYes');
-      elemCount.classList.add('displayYes');
-    } else if (safariInterestVal === 'No'){
-      elemAdhar.classList.remove('displayYes');
-      elemCount.classList.remove('displayYes');
-      elemAdhar.classList.add('displayNo');
-      elemCount.classList.add('displayNo');
-    }
-
-  }
-  
-  //const safariInterest = document.querySelector('#safariInterested');
-  //alert(safariInterest);
-  //safariInterest.onchange = function() {
-    document.querySelector('#safariInterested').addEventListener('change', handleChange);
-  
-  
-
 }
