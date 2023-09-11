@@ -144,3 +144,7 @@ main .form .form-submit-wrapper .button {
       width: 650px;
   }
 }
+.form-safariAdhaar-wrapper field-wrapper {
+display: none
+}
+
