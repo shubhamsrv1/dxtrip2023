@@ -250,6 +250,6 @@ main .section.highlight {
   background-color: var(--highlight-background-color);
 }
 
-form-safariAdhaar-wrapper field-wrapper {
+.form-safariAdhaar-wrapper field-wrapper {
 display: none
 }
